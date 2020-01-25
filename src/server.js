@@ -50,13 +50,13 @@ const userLogin = (client, userInfo) => {
             user.name = userInfo.name;
             db.get(`users.${userInfo.login}`).assign({ name: userInfo.name }).write();
 
-            membersNotification = {
-                payload: 'updateName',
-                data: {
-                    members: members,
-                    newName: userInfo.name
-                }
-            };
+            // membersNotification = {
+            //     payload: 'updateName',
+            //     data: {
+            //         members: members,
+            //         newName: userInfo.name
+            //     }
+            // };
         }
     } else {
         // получаем пользователя и клонируем его, чтобы лишние данные не попали в базу
@@ -232,9 +232,9 @@ webSocketServer.on('connection', function (connection) {
                 case 'login':
                     result = userLogin(client, data.data);
                     break;
-                case 'uploadPhoto':
-                    result = uploadPhoto(client, data.data);
-                    break;
+                // case 'uploadPhoto':
+                //     result = uploadPhoto(client, data.data);
+                //     break;
                 case 'sendMessage':
                     result = sendMessage(client, data.data);
                     break;
