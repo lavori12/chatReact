@@ -19,6 +19,7 @@ class App extends React.Component {
         this.onLogin = this.onLogin.bind(this);
         this.UpdateMembers = this.UpdateMembers.bind(this);
         this.UpdateMessages = this.UpdateMessages.bind(this);
+        this.UpdateUsers = this.UpdateUsers.bind(this);
 
     };
 
@@ -57,7 +58,7 @@ class App extends React.Component {
                         break;
                     case 'newMember':
                         this.UpdateMembers(result.data);
-                        this.UpdateMessages();
+                        this.UpdateUsers(result.data);
                         break;
                     case 'memberLeft':
                         this.UpdateMembers(result.data);
@@ -89,7 +90,18 @@ class App extends React.Component {
         this.setState({
             members: data.members
         })
+
     };
+
+    UpdateUsers(data) {
+        if (this.state.users[data.userLogin] && this.state.users[data.userLogin].name !== data.userName) {
+            let updateNames = this.state.users;
+            updateNames[data.userLogin].name = data.userName;
+            this.setState({
+                users: updateNames
+            })
+        }
+    }
 
     UpdateMessages(data) {
         let allMessages = this.state.messages;

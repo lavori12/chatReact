@@ -1,4 +1,6 @@
-.messagesContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+#messagesContainer {
+    display: flex;
+    flex: 1 1 auto;
+    padding-right: 50px;
+    flex-direction: column;
 }

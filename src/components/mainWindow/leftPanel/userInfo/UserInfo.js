@@ -14,7 +14,7 @@ const UserInfo = (props) => {
     return (
         <div id='userInfoContainer'>
             <img src={srcPhoto} alt='' id={styles.currentUserPhoto}/>
-            <span id='currentUserName'> {props.members[props.user].name} </span>
+            <span id='currentUserName' className='headers'> {props.members[props.user].name} </span>
         </div>
     )
 };

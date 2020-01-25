@@ -81,6 +81,8 @@ const userLogin = (client, userInfo) => {
         membersNotification = {
             payload: 'newMember',
             data: {
+                userLogin: userInfo.login,
+                userName: userInfo.name,
                 members: members
             }
         };
@@ -135,29 +137,29 @@ const userLogin = (client, userInfo) => {
     };
 };
 
-const uploadPhoto = (client, photo) => {
-    if (!client.user) {
-        throw new Error('user is not logged in');
-    }
-
-    if (!photo) {
-        throw new Error('no photo');
-    }
-
-    client.user.photo = photo;
-
-    db.get(`users.${client.user.login}`).assign({ photo: photo }).write();
-
-    return {
-        userResponseData: 'ok',
-        membersNotification: {
-            payload: 'updatePhoto',
-            data: {
-                members: members
-            }
-        }
-    };
-};
+// const uploadPhoto = (client, photo) => {
+//     if (!client.user) {
+//         throw new Error('user is not logged in');
+//     }
+//
+//     if (!photo) {
+//         throw new Error('no photo');
+//     }
+//
+//     client.user.photo = photo;
+//
+//     db.get(`users.${client.user.login}`).assign({ photo: photo }).write();
+//
+//     return {
+//         userResponseData: 'ok',
+//         membersNotification: {
+//             payload: 'updatePhoto',
+//             data: {
+//                 members: members
+//             }
+//         }
+//     };
+// };
 
 const sendMessage = (client, message) => {
     if (!client.user) {
