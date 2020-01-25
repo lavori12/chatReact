@@ -1,0 +1,6 @@
+#chat {
+    grid-column: 2;
+
+    display: grid;
+    grid-template-rows: 15fr 1fr;
+}

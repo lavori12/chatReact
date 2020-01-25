@@ -1,0 +1,13 @@
+#newMessage{
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    margin-bottom: 5px;
+}
+
+input {
+    grid-column: 1;
+}
+
+button {
+    grid-column: 2
+}

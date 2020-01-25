@@ -1,0 +1,6 @@
+#leftPanel {
+    grid-column: 1;
+    background-color: #ff9966;
+    color: #ffffff;
+    padding: 10px;
+}
